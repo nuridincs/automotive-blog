@@ -1,0 +1,27 @@
+body{
+    background-color: #000;
+    color: #fff;
+}
+
+.blog-head {
+    color: #000;
+    text-align: center;
+    background-color: #cf9503;
+    /* border-top: .05rem solid #e5e5e5; */
+}
+
+.blog-head-leads {
+    padding: 1em 0;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    /* border-top: .05rem solid #e5e5e5; */
+}
+
+.wrapper-form-leads{
+    background: #fff;
+    width: 80%;
+    margin: 0 auto;
+    height: 120px;
+    border-radius: 20px;
+}
