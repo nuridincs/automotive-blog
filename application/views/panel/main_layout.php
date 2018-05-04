@@ -27,13 +27,13 @@
     <body>
         <div class="main-wrapper">
             <div class="app" id="app">
-                <?php $this->load->view("layout/header"); ?>
-                <?php $this->load->view("layout/sidebar"); ?>
+                <?php $this->load->view("panel/layout/header"); ?>
+                <?php $this->load->view("panel/layout/sidebar"); ?>
                 <div class="sidebar-overlay" id="sidebar-overlay"></div>
                 <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
                 <div class="mobile-menu-handle"></div>
-                <?php $this->load->view("layout/article"); ?>
-                <?php $this->load->view("layout/footer"); ?>
+                <?php $this->load->view("panel/layout/article"); ?>
+                <?php $this->load->view("panel/layout/footer"); ?>
                 
                 <div class="modal fade" id="modal-media">
                     <div class="modal-dialog modal-lg">
