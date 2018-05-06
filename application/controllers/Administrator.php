@@ -10,7 +10,9 @@ class Administrator extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('panel/main_layout');
+		$data['title'] = "Dashboard";
+		$data['content'] = "panel/layout/article";
+		$this->load->view('panel/main_layout',$data);
 	}
 
 	public function auth(){
@@ -18,11 +20,24 @@ class Administrator extends CI_Controller {
 		$this->load->view('panel/content/_login',$data);
 	}
 
+	public function post($act = ""){
+		if($act == 'add'){
+			$title = 'Add';
+			$urlview = "_add-post";
+		}else{
+			$title = 'Post';
+			$urlview = "_list-post";
+		}
+		$data['title'] = $title;
+		$data['content'] = "panel/content/".$urlview;
+		$this->load->view('panel/main_layout',$data);
+	}
+
 	public function process($act = ""){
 		if($act == 'login'){
+			$this->load->library('form_validation');
 			$email = $this->input->post('username');
 			$password = $this->input->post('password');
-
 			$this->form_validation->set_rules([
 				[
 					'field' => 'username',
@@ -37,12 +52,11 @@ class Administrator extends CI_Controller {
 						. (isset($password) && $password === '' ? '|isset' : ''),
 				],
 			]);
-			
-			if (empty($this->form_validation->run()) || $this->form_validation->run() == FALSE) {
+			if ($this->form_validation->run() == FALSE) {
 				if(isset($this->session->userdata['logged_in'])){
 					$this->load->view('panel/main_layout');
 				}else{
-					redirect('auth');
+					//redirect('administrator/auth');
 				}
 			} else {
 				$data = array(
@@ -52,7 +66,7 @@ class Administrator extends CI_Controller {
 				$result = $this->panel->getData('login',$data);
 				print_r($result);die;
 				if ($result == TRUE) {
-					echo "joz";die;
+					
 					// $username = $email;
 					$result = $this->panel->getData('in_access_login',$email);
 					if ($result != false) {

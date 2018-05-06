@@ -29,6 +29,7 @@ class M_admin extends CI_Model {
             $this->db->where($condition);
             $this->db->limit(1);
             $query = $this->db->get();
+            print_r($this->db->last_query());die;
             if ($query->num_rows() == 1) {
                 return $query->result();
             } else {

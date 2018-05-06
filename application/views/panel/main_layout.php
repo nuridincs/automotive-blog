@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title> Dojotomania.com <?php isset($title) ? " | " . $title : '' ?> </title>
+        <title> Dojotomania.com <?= isset($title) ? " | " . $title : '' ?> </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -32,7 +32,7 @@
                 <div class="sidebar-overlay" id="sidebar-overlay"></div>
                 <div class="sidebar-mobile-menu-handle" id="sidebar-mobile-menu-handle"></div>
                 <div class="mobile-menu-handle"></div>
-                <?php $this->load->view("panel/layout/article"); ?>
+                <?php $this->load->view($content); ?>
                 <?php $this->load->view("panel/layout/footer"); ?>
                 
                 <div class="modal fade" id="modal-media">

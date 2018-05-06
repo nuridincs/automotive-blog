@@ -66,7 +66,8 @@
                                     <a href="signup.html">Sign Up!</a>
                                 </p>
                             </div> -->
-                        </form>
+                        <?php echo form_close(); ?>
+                        <!-- </form> -->
                     </div>
                 </div>
                 <!-- <div class="text-center">
